@@ -3,6 +3,7 @@
 * (간략히 프로젝트를 설명하고, 최종 목표가 무엇인지에 대해 기술)
 
 ## High Level Design
+![image](https://github.com/kyoonw/D-gaja/assets/169637084/314f441b-72fb-4a20-bd46-a6295f902bf9)
 
 * (프로젝트 아키텍쳐 기술, 전반적인 diagram 으로 설명을 권장)
 
