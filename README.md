@@ -10,6 +10,10 @@
 ![image](https://github.com/kyoonw/D-gaja/assets/169637084/314f441b-72fb-4a20-bd46-a6295f902bf9)
 
 
+## Gantt Chart
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/68be875b-a683-438a-b7aa-37b4464dff70)
+
+
 ## Clone code
 
 * github를 통한 코드 공유 
