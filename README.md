@@ -3,7 +3,7 @@
 * (간략히 프로젝트를 설명하고, 최종 목표가 무엇인지에 대해 기술)
 
 ## High Level Design
-
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/6884d194-6be3-49f3-9a52-c5b0b123a2b8)
 
 
 ## Flow Chart
