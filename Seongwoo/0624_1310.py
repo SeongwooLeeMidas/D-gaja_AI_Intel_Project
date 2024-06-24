@@ -1,14 +1,12 @@
 import cv2
-import os
 import sys
 import numpy as np
-import time 
-import threading
-from openvino.runtime import AsyncInferQueue, Core, InferRequest, Layout, Type
-#from openvino.runtime import IECore
-from openvino.preprocess import PrePostProcessor, ResizeAlgorithm
-from argparse import SUPPRESS, ArgumentParser
-from pathlib import Path
+import time
+from openvino.runtime import Core, Tensor
+#from openvino.runtime import AsyncInferQueue, Core, InferRequest, Layout, Type
+#from openvino.preprocess import PrePostProcessor, ResizeAlgorithm
+#from argparse import SUPPRESS, ArgumentParser
+#from pathlib import Path
 
 # 모델 경로 정의
 model_xml = "/home/ubuntu/workspace1/otx_detection/outputs/D-gaja/Chanuks/deploy1/model/model.xml"
@@ -25,12 +23,12 @@ except Exception as e:
     print(f"모델 로드 오류: {e}")
     exit(1)
 
-input_layer = compiled_model.input(0)
-output_layer = compiled_model.output(0)
-
 # 고정된 입력 크기
 input_height = 384
 input_width = 384
+
+input_layer_drone = model.input(0)
+output_layer_drone = model.output(0)
 
 # 입력 프레임 전처리 함수 정의
 def preprocess_frame(frame):
@@ -43,6 +41,7 @@ def preprocess_frame(frame):
 # 모델 출력 후처리 함수 정의
 def postprocess_output(frame, boxes, labels, conf_threshold=0.5):
     frame_height, frame_width = frame.shape[:2]
+
     for box, label in zip(boxes, labels):
         x_min, y_min, x_max, y_max, confidence = box
         if confidence > conf_threshold:
@@ -54,45 +53,81 @@ def postprocess_output(frame, boxes, labels, conf_threshold=0.5):
             label = f"Drone: {confidence:.2f}"
             cv2.putText(frame, label, (x_min, y_min - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
-# 메인 추론 함수 정의
-def run_inference():
+# 비동기 추론 함수 정의
+def async_api(source=0, use_popup=True):
+    frame_number = 0
+    curr_request = compiled_model.create_infer_request()
+    next_request = compiled_model.create_infer_request()
+    async_fps = 0
+
     try:
         cap = cv2.VideoCapture(0)
-        assert cap.isOpened(), "비디오 파일을 읽는 데 오류가 발생했습니다."
+        if not cap.isOpened():
+            print("웹캠을 읽는 데 오류가 발생했습니다.")
+            return 
+
+        start_time = time.time()
+        if use_popup:
+            title = "Press ESC to Exit"
+            cv2.namedWindow(title, cv2.WINDOW_GUI_NORMAL | cv2.WINDOW_AUTOSIZE)
 
         ret, frame = cap.read()
         if not ret:
-            print("비디오 파일을 읽는 데 실패했습니다.")
-            exit(1)
+            print("웹캠을 읽는 데 실패했습니다.")
+            return
+            # exit(1)
 
-        cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-
+        curr_request.start_async()
         while cap.isOpened():
-            success, frame = cap.read()
-            if not success:
-                print("비디오 프레임이 비어 있거나 비디오 처리가 완료되었습니다.")
-                break
+            ret, frame = cap.read()
+            if not ret:
+                print("웹캠 스트림이 종료되었습니다.")
+                continue
+            resized_frame = preprocess_frame(frame)
+            next_request.set_tensor(input_layer_drone, Tensor(resized_frame))
+            next_request.start_async()
+            curr_request.wait()
+            res = curr_request.get_output_tensor(0).data
 
+            stop_time = time.time()
+            total_time = stop_time - start_time
+            frame_number = frame_number + 1
+            async_fps = frame_number / total_time
+            # postprocess_output(frame, res, conf_threshold=0.5)
+            curr_request, next_request = next_request, curr_request
+            
             input_data = preprocess_frame(frame)
-                        
             results = compiled_model([input_data])
             boxes = results[0][0]
             labels = results[1][0]
-           
-            postprocess_output(frame, boxes, labels)
+            try:
+                postprocess_output(frame, boxes, labels)
+            except:
+                continue
 
-            cv2.imshow('Frame', frame)
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+            # 결과 보기
+            #if use_popup:
+            cv2.imshow(title, frame)
+            key = cv2.waitKey(1)
+            if key == 27:
                 break
+
 
     except KeyboardInterrupt:
         print("중단됨")
+    except RuntimeError as e:
+        print (e)
 
-    cap.release()
-    cv2.destroyAllWindows()
-
+    finally:
+        if use_popup:
+            cv2.destroyAllWindows()
+        if cap is not None:
+            cap.release()
+        return async_fps
 
 if __name__ == "__main__":
-    run_inference()
+    async_fps = async_api(source=0)
+    print(f"Async FPS: {async_fps}")
     sys.exit(0)
+
 
