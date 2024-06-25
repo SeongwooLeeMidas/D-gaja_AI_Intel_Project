@@ -3,14 +3,6 @@ import sys
 import numpy as np
 import time
 from openvino.runtime import Core, Tensor
-#from openvino.runtime import AsyncInferQueue, Core, InferRequest, Layout, Type
-#from openvino.preprocess import PrePostProcessor, ResizeAlgorithm
-#from argparse import SUPPRESS, ArgumentParser
-#from pathlib import Path
-
-# 중복된 데이터 처리 제거: 현재 코드에서는 두 번의 프레임 전처리를 수행하고 있습니다. 이를 줄입니다.
-# 병렬 처리를 통한 비동기 추론 최적화: 추론 요청을 좀 더 효율적으로 전환합니다.
-# 불필요한 예외 처리 및 구조 간소화: 필요하지 않은 예외 처리를 제거하고 구조를 단순화합니다.
 
 # 모델 경로 정의
 model_xml = "/home/ubuntu/workspace1/otx_detection/outputs/D-gaja/Chanuks/deploy0625/model/model.xml"
@@ -97,7 +89,6 @@ def async_api(source=0, use_popup=True):
             total_time = stop_time - start_time
             frame_number = frame_number + 1
             async_fps = frame_number / total_time
-            # postprocess_output(frame, res, conf_threshold=0.5)
             curr_request, next_request = next_request, curr_request
             
             input_data = preprocess_frame(frame)
@@ -110,7 +101,6 @@ def async_api(source=0, use_popup=True):
                 continue
 
             # 결과 보기
-            #if use_popup:
             cv2.imshow(title, frame)
             key = cv2.waitKey(1)
             if key == 27:
@@ -133,5 +123,3 @@ if __name__ == "__main__":
     async_fps = async_api(source=0)
     print(f"Async FPS: {async_fps}")
     sys.exit(0)
-
-
