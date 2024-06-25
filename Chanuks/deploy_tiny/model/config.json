@@ -16,7 +16,7 @@
             },
             "label_groups": [
                 {
-                    "_id": "667a49f7d14e129e9e1bd2cb",
+                    "_id": "667a56b7cb8dffaa1fbb3c75",
                     "name": "labels",
                     "label_ids": [
                         "1"
@@ -29,14 +29,14 @@
                     "_id": "1",
                     "name": "drone",
                     "color": {
-                        "red": 121,
-                        "green": 25,
-                        "blue": 46,
+                        "red": 16,
+                        "green": 227,
+                        "blue": 233,
                         "alpha": 255
                     },
                     "hotkey": "",
                     "domain": "DETECTION",
-                    "creation_date": "2024-06-25T04:39:19.209000",
+                    "creation_date": "2024-06-25T05:33:43.338000",
                     "is_empty": false,
                     "is_anomalous": false
                 }
