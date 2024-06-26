@@ -1,0 +1,74 @@
+{
+    "type_of_model": "SSD",
+    "converter_type": "DETECTION",
+    "model_parameters": {
+        "result_based_confidence_threshold": true,
+        "confidence_threshold": 0.675000011920929,
+        "use_ellipse_shapes": false,
+        "resize_type": "fit_to_window_letterbox",
+        "pad_value": 114,
+        "labels": {
+            "label_tree": {
+                "type": "tree",
+                "directed": true,
+                "nodes": [],
+                "edges": []
+            },
+            "label_groups": [
+                {
+                    "_id": "667b97dd6b0ede9673d5656f",
+                    "name": "labels",
+                    "label_ids": [
+                        "1"
+                    ],
+                    "relation_type": "EXCLUSIVE"
+                }
+            ],
+            "all_labels": {
+                "1": {
+                    "_id": "1",
+                    "name": "drone",
+                    "color": {
+                        "red": 240,
+                        "green": 74,
+                        "blue": 244,
+                        "alpha": 255
+                    },
+                    "hotkey": "",
+                    "domain": "DETECTION",
+                    "creation_date": "2024-06-26T04:23:53.491000",
+                    "is_empty": false,
+                    "is_anomalous": false
+                }
+            }
+        }
+    },
+    "tiling_parameters": {
+        "visible_in_ui": true,
+        "type": "PARAMETER_GROUP",
+        "enable_tiling": false,
+        "enable_tile_classifier": false,
+        "enable_adaptive_params": true,
+        "tile_size": 400,
+        "tile_overlap": 0.2,
+        "tile_max_number": 1500,
+        "tile_ir_scale_factor": 1.0,
+        "tile_sampling_ratio": 1.0,
+        "object_tile_ratio": 0.03,
+        "header": "Tiling Parameters",
+        "description": "Tiling Parameters",
+        "_ParameterGroup__metadata_overrides": {},
+        "groups": [],
+        "parameters": [
+            "enable_adaptive_params",
+            "enable_tile_classifier",
+            "enable_tiling",
+            "object_tile_ratio",
+            "tile_ir_scale_factor",
+            "tile_max_number",
+            "tile_overlap",
+            "tile_sampling_ratio",
+            "tile_size"
+        ]
+    }
+}
