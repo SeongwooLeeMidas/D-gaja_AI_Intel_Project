@@ -1,0 +1,72 @@
+{
+    "type_of_model": "SSD",
+    "converter_type": "DETECTION",
+    "model_parameters": {
+        "result_based_confidence_threshold": true,
+        "confidence_threshold": 0.30000001192092896,
+        "use_ellipse_shapes": false,
+        "labels": {
+            "label_tree": {
+                "type": "tree",
+                "directed": true,
+                "nodes": [],
+                "edges": []
+            },
+            "label_groups": [
+                {
+                    "_id": "667cc8130f94c17034f37c03",
+                    "name": "labels",
+                    "label_ids": [
+                        "1"
+                    ],
+                    "relation_type": "EXCLUSIVE"
+                }
+            ],
+            "all_labels": {
+                "1": {
+                    "_id": "1",
+                    "name": "drone",
+                    "color": {
+                        "red": 127,
+                        "green": 127,
+                        "blue": 251,
+                        "alpha": 255
+                    },
+                    "hotkey": "",
+                    "domain": "DETECTION",
+                    "creation_date": "2024-06-27T02:01:55.045000",
+                    "is_empty": false,
+                    "is_anomalous": false
+                }
+            }
+        }
+    },
+    "tiling_parameters": {
+        "visible_in_ui": true,
+        "type": "PARAMETER_GROUP",
+        "enable_tiling": false,
+        "enable_tile_classifier": false,
+        "enable_adaptive_params": true,
+        "tile_size": 400,
+        "tile_overlap": 0.2,
+        "tile_max_number": 1500,
+        "tile_ir_scale_factor": 1.0,
+        "tile_sampling_ratio": 1.0,
+        "object_tile_ratio": 0.03,
+        "header": "Tiling Parameters",
+        "description": "Tiling Parameters",
+        "_ParameterGroup__metadata_overrides": {},
+        "groups": [],
+        "parameters": [
+            "enable_adaptive_params",
+            "enable_tile_classifier",
+            "enable_tiling",
+            "object_tile_ratio",
+            "tile_ir_scale_factor",
+            "tile_max_number",
+            "tile_overlap",
+            "tile_sampling_ratio",
+            "tile_size"
+        ]
+    }
+}
