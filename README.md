@@ -1,4 +1,4 @@
-# D-gaja
+# DTS (Drone Tracking System)
 
 군사용 Anti-Drone System은 존재하는데, 민간용은 존재하지 않아서 저렴한 Anti-Drone System 제작을 목표로 설정했다. 
 
