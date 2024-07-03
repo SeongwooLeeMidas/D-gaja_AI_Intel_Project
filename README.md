@@ -56,9 +56,10 @@ python3 board.py
 ```
 
 ## Output
+*제품 외관
+![image (1)](https://github.com/kyoonw/D-gaja/assets/88040637/836c15e8-a656-4366-807f-c4fff6e9aca8)
 
-* (프로젝트 실행 화면 캡쳐)
-
+* 제품 작동 
 ![image](https://github.com/kyoonw/D-gaja/assets/170689181/afcd1fee-880e-4435-8ec4-a44f15ed67f1)
 
 ## Appendix
