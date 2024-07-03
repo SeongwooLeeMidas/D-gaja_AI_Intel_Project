@@ -55,14 +55,16 @@ make install
 
 ## Steps to run
 
-* pc가상환경을 통해 test build 후 board-depoly
+*PC서버 작동
 
 ```shell
-cd ~/xxxx
-source .venv/bin/activate
-
-cd /path/to/repo/xxx/
-python demo.py -i xxx -m yyy -d zzz
+cd ~/main
+python3 server.py
+```
+*보드내에서 작동 
+```shell
+cd ~/main
+python3 board.py
 ```
 
 ## Output
