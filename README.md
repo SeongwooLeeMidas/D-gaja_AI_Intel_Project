@@ -1,6 +1,11 @@
 # D-gaja
 
-* (간략히 프로젝트를 설명하고, 최종 목표가 무엇인지에 대해 기술)
+군사용 Anti-Drone System은 존재하는데, 민간용은 존재하지 않아서 저렴한 Anti-Drone System 제작을 목표로 설정했다. 
+
+
+드론에 피해를 입히면 범죄에 휘말릴 수 있기 때문에 카메라, 마이크를 활용해 드론 객체를 추적하여 경찰에 알려주는 시스템을 개발하는 것이 목표이다.
+
+
 
 ## System Diagram
 ![image](https://github.com/kyoonw/D-gaja/assets/170689181/0f8e5abe-79e4-4a28-97df-f8174818dc20)
