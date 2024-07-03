@@ -73,4 +73,4 @@ python demo.py -i xxx -m yyy -d zzz
 
 ## Appendix
 
-* (참고 자료 및 알아두어야할 사항들 기술)
+* [(참고 자료 및 알아두어야할 사항들 기술)](https://github.com/kyoonw/D-gaja)
