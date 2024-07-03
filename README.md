@@ -2,12 +2,16 @@
 
 * (간략히 프로젝트를 설명하고, 최종 목표가 무엇인지에 대해 기술)
 
-## High Level Design
-![image](https://github.com/kyoonw/D-gaja/assets/170689181/6884d194-6be3-49f3-9a52-c5b0b123a2b8)
+## System Diagram
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/0f8e5abe-79e4-4a28-97df-f8174818dc20)
 
 
 ## Flow Chart
-![image](https://github.com/kyoonw/D-gaja/assets/169637084/314f441b-72fb-4a20-bd46-a6295f902bf9)
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/6b639baa-5e29-4ce0-a796-fad63a311a30)
+
+
+## Circuit Diagram
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/02a2f16f-0451-436e-970c-399432458d4d)
 
 
 ## Gantt Chart
