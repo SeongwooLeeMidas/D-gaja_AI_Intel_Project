@@ -19,8 +19,8 @@
 ![image](https://github.com/kyoonw/D-gaja/assets/170689181/02a2f16f-0451-436e-970c-399432458d4d)
 
 
-## Gantt Chart
-![image](https://github.com/kyoonw/D-gaja/assets/170689181/68be875b-a683-438a-b7aa-37b4464dff70)
+## ProJect Schedule
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/249d19c5-d74f-4213-bc66-d2c0765f6dba)
 
 
 ## Clone code
