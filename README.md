@@ -41,18 +41,6 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Steps to build
-
-* pc가상환경을 통해 testbuild 후 board-depoly
-
-```shell
-cd ~/xxxx
-source .venv/bin/activate
-
-make
-make install
-```
-
 ## Steps to run
 
 *PC서버 작동
