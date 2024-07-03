@@ -12,7 +12,7 @@
 
 
 ## Flow Chart
-![image](https://github.com/kyoonw/D-gaja/assets/170689181/6b639baa-5e29-4ce0-a796-fad63a311a30)
+![image](https://github.com/kyoonw/D-gaja/assets/170689181/a07804d7-750b-40c4-a8f1-22bb975f5341)
 
 
 ## Circuit Diagram
